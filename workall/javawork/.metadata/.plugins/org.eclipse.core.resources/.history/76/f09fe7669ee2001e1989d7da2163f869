@@ -1,0 +1,13 @@
+package day0315;
+
+public class Ex11_Operator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//조건(삼항)연산자
+		//조건식?참:거짓
+		//두수를 입력후 더 큰숫자를 출력하시오
+		//
+	}
+
+}
