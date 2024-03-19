@@ -27,24 +27,24 @@ public class Ex5_Switch {
 			System.out.println("잘못 입력했어요!");
 			return;//메인 메서드 종료
 		}
-		
+
 		//1.switch 문으로 해보기
-//		switch(month)
-//		{
-//		case 2:
-//			//days=flag==true?29:28;
-//			days=flag?29:28;//위와 같음
-//			break;
-//		case 4:
-//		case 6:
-//		case 9:
-//		case 11:
-//			days=30;
-//			break;
-//			default:
-//			days=31;
-//		}
-		
+		//		switch(month)
+		//		{
+		//		case 2:
+		//			//days=flag==true?29:28;
+		//			days=flag?29:28;//위와 같음
+		//			break;
+		//		case 4:
+		//		case 6:
+		//		case 9:
+		//		case 11:
+		//			days=30;
+		//			break;
+		//			default:
+		//			days=31;
+		//		}
+
 		//2. if문으로 해보기
 		if(month==2)
 		{
@@ -54,14 +54,14 @@ public class Ex5_Switch {
 		}else {
 			days=31;
 		}
-		
+
 		System.out.println(year+"년 "+month+"월은 "+days+" 일까지 있습니다");
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	}
 
 }

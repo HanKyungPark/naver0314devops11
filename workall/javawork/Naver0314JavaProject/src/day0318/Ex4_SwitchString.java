@@ -17,18 +17,18 @@ public class Ex4_SwitchString {
 		case "Red":
 		case "red":
 		case "RED":
-		System.out.println("빨강색");
-		break;
+			System.out.println("빨강색");
+			break;
 		case "GREEN":
 		case "green":
-		System.out.println("초록색");
-		break;
+			System.out.println("초록색");
+			break;
 		case "PINK":
 		case "pink":
 			System.out.println("분홍색");
 			break;
-			default:
-				System.out.println("빨강,초록,분홍 이외의 색!");
+		default:
+			System.out.println("빨강,초록,분홍 이외의 색!");
 		}
 	}
 

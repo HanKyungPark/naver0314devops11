@@ -24,7 +24,7 @@ public class Ex3_Switch {
 			break;
 		default:
 			System.out.println("Other Number!!");
-				
+
 		}
 	}
 
