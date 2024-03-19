@@ -33,6 +33,9 @@ public class Ex9_DateCalender {
 		System.out.printf("%d년 %d월 %d일입니다\n",year,month,day);
 
 
+
+
+
 	}
 
 }
