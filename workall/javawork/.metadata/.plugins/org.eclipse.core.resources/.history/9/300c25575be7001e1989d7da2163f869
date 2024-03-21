@@ -1,0 +1,18 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Book199_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int inwon;
+		int score=0;
+		
+		
+		System.out.println("학생수는?");
+		inwon=Integer.parseInt(sc.nextLine());
+	}
+
+}

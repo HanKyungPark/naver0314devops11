@@ -1,0 +1,31 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Book199_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int inwon=0;
+		int su=0;
+		int max;
+		int [] score;
+
+
+		Loop:
+			while(true) {
+				System.out.println("-".repeat(47));
+				System.out.println("1.학생수 | 2.점수입력 | 3. 점수리스트 | 4.분석 | 5.종료");
+				System.out.println("-".repeat(47));
+				su=Integer.parseInt(sc.nextLine());
+				switch(su)
+				{
+				case 
+				}
+			}
+	}
+}
+
+
+

@@ -1,0 +1,15 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Book199_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int []su;
+		int score=0;
+		
+	}
+
+}

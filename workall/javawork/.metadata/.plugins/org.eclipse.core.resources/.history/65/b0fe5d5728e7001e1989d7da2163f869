@@ -1,0 +1,20 @@
+package day0321;
+
+public class Ex4_ArrayAlphaCount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * 영어문장을 입력하면 알파벳 기준으로 각각의 갯수를 출력하시오
+		 * Have a Nice Day1!!!!
+		 * 
+		 * 'A' -> 0번지 증가
+		 * 'B' -> 1번지 증가
+		 * A:3    B:0....Z:0
+		 */
+		Scanner sc=new Scanner(System.in);
+		String msg;
+		int []alpha=new int[26];
+	}
+
+}
