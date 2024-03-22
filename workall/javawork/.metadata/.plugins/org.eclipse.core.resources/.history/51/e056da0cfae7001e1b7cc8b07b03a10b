@@ -1,0 +1,19 @@
+package day0322;
+class MyShop
+{
+	private String sanpum;
+	private int su,dan;
+	private static String message;
+	
+	public static final String SHOP="24시간이마트";
+	
+}
+
+public class Ex3_StaticMethod {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
