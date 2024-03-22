@@ -27,7 +27,7 @@ public class Ex1_Object {
 		//System.out.println(name);//오류 발생
 		System.out.println(Ex1_Object.MAX);//static 변수는 클래스명.변수명
 		System.out.println(MAX);//같은 클래스일경우는 앞에 클래스명은 생략이 가능하다
-
+		
 		//name 을 출력하려면 new 로 생성한 인스턴스 변수가 필요하다
 		Ex1_Object ex=new Ex1_Object();
 		//ex가 인스턴스 변수이다. 이 변수를 이용해야만 name 이 접근이 가능하다

@@ -1,0 +1,37 @@
+package day0322;
+
+import java.util.Scanner;
+
+//Call By Reference
+public class Ex7_ClassSawonArray {
+	
+	//입력받는 메서드
+	static public void inputSawonArray(Sawon []sa)
+	{
+		
+	}
+	//출력하는 메서드
+	static public void outputSawonArray(Sawon []sa)
+	{
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Sawon []sawon=null;
+		int inwon;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("직원 인원수는?");
+		inwon=Integer.parseInt(sc.nextLine());
+		//인원수만큼 메모리 할당
+		sawon=new Sawon[inwon];
+		
+		inputSawonArray(sawon);
+		outputSawonArray(sawon);
+		
+		
+		
+		
+	}
+
+}

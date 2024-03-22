@@ -56,6 +56,7 @@ class MyShop
 		System.out.println("오늘의 메세지:"+message);
 		System.out.println("=".repeat(20));
 	}
+	
 }
 
 public class Ex3_StaticMethod {
