@@ -1,0 +1,22 @@
+package day0322;
+
+import day0322.MyintegerClass;
+
+public class TestMyIeteger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyintegerClass class2 = new MyintegerClass(7);
+		MyintegerClass class3 = new MyintegerClass(26);
+
+		System.out.println(class2.getValue()); 
+		System.out.println(class2.isEven());
+		System.out.println(class2.isOdd());
+		System.out.println(class2.equals(7));
+		System.out.println(class3.equals(7));
+
+
+
+	}
+
+}

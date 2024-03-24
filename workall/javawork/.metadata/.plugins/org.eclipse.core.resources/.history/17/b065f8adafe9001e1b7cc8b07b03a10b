@@ -1,0 +1,43 @@
+package day0322;
+
+
+public class MyintegerClass {
+	private int value;
+	
+	public MyintegerClass(int value)
+	{
+		this.value=value;
+	}
+	
+	public int getValue()
+	{
+		return value;
+	}
+	public boolean isEven()
+	{
+		if(value/2==0) {
+			return true;	
+		}
+		return false;
+	}
+	public boolean isOdd()
+	{
+		if(value/2!=0) {
+			return true;
+		}
+		return false;
+	}
+	public boolean equals(int number)
+	{
+		if(value == number) {
+			return true;
+		}
+		return false;
+	}
+
+	
+	}
+	
+
+
+
