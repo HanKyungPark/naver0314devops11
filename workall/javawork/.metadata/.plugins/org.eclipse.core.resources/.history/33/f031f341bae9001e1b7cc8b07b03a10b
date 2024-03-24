@@ -3,12 +3,12 @@ package day0324;
 
 public class MyintegerClass {
 	private int value;
-
+	
 	public MyintegerClass(int value)
 	{
 		this.value=value;
 	}
-
+	
 	public int getValue()
 	{
 		return value;
@@ -35,9 +35,9 @@ public class MyintegerClass {
 		return false;
 	}
 
-
-}
-
+	
+	}
+	
 
 
 
