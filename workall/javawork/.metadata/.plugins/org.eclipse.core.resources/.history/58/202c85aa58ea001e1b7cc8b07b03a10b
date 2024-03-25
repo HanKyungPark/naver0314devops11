@@ -1,0 +1,10 @@
+package day0325;
+
+public class Employee {
+	private String Name;
+	private String Position;
+	private int Age;
+	private int Gibon;
+	private int Sudang;
+	private int Netpay;
+}

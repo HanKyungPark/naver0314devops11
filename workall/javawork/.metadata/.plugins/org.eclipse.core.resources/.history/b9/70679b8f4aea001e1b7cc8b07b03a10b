@@ -1,0 +1,43 @@
+package day0325;
+
+public class Shop {
+	private String sang;
+	private int su;
+	private int dan;
+	
+	
+	public Shop()
+	{
+		this("이름없음",1,1000);
+	}
+	public Shop(String sang)
+	{
+		this(sang,1,1000);
+	}
+	public Shop(int su, int dan)
+	{
+		this("이름없음",su,dan);
+	}
+	public Shop(String sang,int su,int dan)
+	{
+		this.sang=sang;
+		this.su=su;
+		this.dan=dan;
+	}
+
+
+	
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+		
+	
+}
