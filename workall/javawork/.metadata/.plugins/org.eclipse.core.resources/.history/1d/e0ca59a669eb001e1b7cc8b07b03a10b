@@ -1,0 +1,39 @@
+package Day0326;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderStudy {
+	
+	final static String FILENAME ="/Users/hankyung/Desktop/naver0314/study.txt";
+	 
+	public static void fileRead() throws IOException {
+		FileReader fr = new FileReader(FILENAME);
+		BufferedReader br = new BufferedReader(fr);
+		
+		String line = br.readLine();
+		
+		while(line != null) {
+			System.out.println(line);
+			line = br.readLine();
+		}
+		
+		br.close();
+		fr.close();
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		try {
+//			fileRead();
+//		}catch(IOException e) {
+//			System.out.println("에러: " + e.getMessage());
+//		}
+		
+		fileRead();
+
+	}
+
+}

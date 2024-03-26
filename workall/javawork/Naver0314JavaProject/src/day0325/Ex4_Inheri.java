@@ -11,7 +11,7 @@ class AA{
 		System.out.println(msg+"문자열을 받는 생성자(AA)");
 	}
 
-
+//super <-부모클래스 
 
 }
 

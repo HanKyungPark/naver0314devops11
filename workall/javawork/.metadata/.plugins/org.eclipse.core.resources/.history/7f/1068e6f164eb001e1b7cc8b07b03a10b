@@ -1,0 +1,17 @@
+package Day0326;
+
+public class FileIO {
+	
+	static final String FILENAME = "/Users/hankyung/Desktop/naver0314/study.txt";
+	
+	public static void fileWrite() {
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

@@ -1,0 +1,50 @@
+package Munje;
+
+public class BankAccount {
+
+	
+	 protected String number;
+		protected String password;
+		protected String name;
+		protected long balance;
+		
+		
+		public BankAccount(String number1, String password, String name, long balance)
+		{
+			this.number=number1;
+			this.password=password;
+			this.name=name;
+			this.balance=balance;
+		}
+		
+		public void pritAccount()
+		{
+			System.err.printf("계좌번호 : \t%s",number);
+			System.out.printf("비밀번호 : \t%s",password);
+			System.out.printf("예금주 : \t%s",name);
+			System.out.printf("계좌 잔액 : \t%f",balance);
+			System.out.println("=".repeat(30));
+			
+			
+		}	
+			
+		public void deposit()
+		{
+			
+		}
+		
+		public void withdraw()
+		{
+			
+		}
+		
+	
+		
+		
+			
+		
+		
+	
+
+
+}

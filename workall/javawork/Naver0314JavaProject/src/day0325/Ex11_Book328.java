@@ -1,4 +1,5 @@
 package day0325;
+
 abstract class Animal2{
 	public void breathe(){
 		System.out.println("숨을 쉽니다..");

@@ -1,0 +1,44 @@
+package Munje;
+
+public class BankAccount {
+
+	
+	 protected String number;
+		protected String password;
+		protected String name;
+		protected long balce;
+		
+		
+		public BankAccount(String number1, String passwird, String name, long balce)
+		{
+			this.number=number1;
+			this.password=passwird;
+			this.name=name;
+			this.balce=balce;
+		}
+		
+		public void pritAccount()
+		{
+			
+		}
+		
+		public void deposit()
+		{
+			
+		}
+		
+		public void withdraw()
+		{
+			
+		}
+		
+	
+		
+		
+			
+		
+		
+	
+
+
+}

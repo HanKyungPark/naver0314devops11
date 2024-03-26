@@ -1,0 +1,20 @@
+package Munje;
+
+public class BankAccount {
+
+	
+	 protected String number;
+		protected String password;
+		protected String name;
+		protected long balance;
+		
+	
+		
+		
+			
+		
+		
+	
+
+
+}
