@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" filepath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../../naver0314devops11/workall/javawork/Naver0314JavaProject/Naver0314JavaProject.iml" filepath="$PROJECT_DIR$/../../../../naver0314devops11/workall/javawork/Naver0314JavaProject/Naver0314JavaProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/javawork.iml" filepath="$PROJECT_DIR$/javawork.iml" />
     </modules>
   </component>
