@@ -1,8 +1,10 @@
+
 package day0327;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.List;
@@ -138,7 +140,26 @@ public class Ex9_VectorMunje {
 
 	public void deleteStudent()
 	{
+		boolean f=false;
+		System.out.println("삭제할 학생의 이름은?");
+		String name=sc.nextLine();
 
+		for(int i=0;i<list.size();i++)
+		{
+			StudentDto dto=list.get(i);
+			if(dto.getName().equals(name))
+			{
+				f=true;
+				//삭제
+				list.remove(i);
+				break;
+			}
+		}
+
+		if(f)
+			System.out.println(name+" 님의 정보를 삭제했습니다");
+		else
+			System.out.println(name+"님은 명단에 없습니다");
 	}
 
 	public void writeStudent()
@@ -164,16 +185,78 @@ public class Ex9_VectorMunje {
 
 	public void searchAverage()
 	{
+		//입력하는 평균값 이상의 학생정보만 출력하기
+		System.out.println("검색할 평균값은?");
+		double avg=Double.parseDouble(sc.nextLine());
 
+		System.out.printf("\t\t** %5.1f 평균이상의 학생정보 출력 **\n",avg);
+		System.out.println("=".repeat(70));
+		System.out.println("번호\t이름\t나이\tJava\tSpring\tHTML\t총점\t평균\t등급");
+		System.out.println("=".repeat(70));
+		//평균은 소숫점 한자리로 출력해보자
+		NumberFormat nf=NumberFormat.getInstance();
+		nf.setMaximumFractionDigits(1);
+
+		for(int i=0;i<list.size();i++)
+		{
+			StudentDto dto=list.get(i);
+			if(dto.getAvg()>=avg)
+				System.out.println(i+1+"\t"+dto.getName()+"\t"+dto.getAge()+"\t"+
+						dto.getJava()+"\t"+dto.getSpring()+"\t"+dto.getHtml()+"\t"+dto.getTotal()
+						+"\t"+nf.format(dto.getAvg())+"\t"+dto.getGrade());
+		}
+		System.out.println("=".repeat(70));
 	}
 
 	public void searchName()
 	{
+		//입력하는 이름을 포함한 학생정보만 출력하기
+		System.out.println("검색할 이름은?");
+		String name=sc.nextLine();
 
+		System.out.printf("\t\t** \"%s\" 이름을 포함한 학생정보 출력 **\n",name);
+		System.out.println("=".repeat(70));
+		System.out.println("번호\t이름\t나이\tJava\tSpring\tHTML\t총점\t평균\t등급");
+		System.out.println("=".repeat(70));
+		//평균은 소숫점 한자리로 출력해보자
+		NumberFormat nf=NumberFormat.getInstance();
+		nf.setMaximumFractionDigits(1);
+
+		for(int i=0;i<list.size();i++)
+		{
+			StudentDto dto=list.get(i);
+			if(dto.getName().contains(name))
+				System.out.println(i+1+"\t"+dto.getName()+"\t"+dto.getAge()+"\t"+
+						dto.getJava()+"\t"+dto.getSpring()+"\t"+dto.getHtml()+"\t"+dto.getTotal()
+						+"\t"+nf.format(dto.getAvg())+"\t"+dto.getGrade());
+		}
+		System.out.println("=".repeat(70));
 	}
 
 	public void studentFileSave()
 	{
+		FileWriter fw=null;
+		try {
+			fw=new FileWriter(FILENAME);
+			for(StudentDto dto:list)
+			{
+				String s=dto.getName()+","+dto.getAge()+","+dto.getJava()+","+dto.getSpring()+","+dto.getHtml()+"\n";
+				//파일에 저장
+				fw.write(s);
+			}
+			System.out.println("총 "+list.size()+"명의 정보를 저장합니다!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(fw!=null)
+				try {
+					fw.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
 
 	}
 	public static void main(String[] args) {

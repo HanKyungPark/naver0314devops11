@@ -37,14 +37,8 @@ public class BankAccount {
 		{
 			
 		}
-		
-	
-		
-		
-			
-		
-		
-	
 
 
+	public void printAccount() {
+	}
 }
