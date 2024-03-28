@@ -1,0 +1,119 @@
+package day0327;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Vector;
+
+/*
+ * 1.학생정보추가 : 이름,나이,3과목 점수입력
+ * 2.학생정보삭제 : 이름으로 찾아서 삭제(없을경우 메세지 출력)
+ * 3.전체출력 : 번호,이름,JAVA,Spring,HTML,총점,평균,등급 출력
+ * 4.평균으로검색 : 평균값을 입력하면 그 평균이상의 학생들을 출력
+ * 5.이름으로검색 : 입력한이름을 포함하고 있으면 출력(contains)
+ * 6.저장후종료
+ */
+public class Ex9_VectorMunje {
+	Scanner sc=new Scanner(System.in);
+	ArrayList<StudentDto> list=new ArrayList<StudentDto>();
+
+
+	//멤버 데이타 추가
+	public void addMember()
+	{
+		System.out.println("이름을 입력하세요");
+		String name=sc.nextLine();
+		System.out.println("나이를 입력하세요");
+		int age=Integer.parseInt(sc.nextLine());
+		System.out.println("java 점수는?");
+		int java=Integer.parseInt(sc.nextLine());
+		System.out.println("spring 점수는?");
+		int spring=Integer.parseInt(sc.nextLine());
+		System.out.println("html 점수는?");
+		int html=Integer.parseInt(sc.nextLine());
+
+
+
+
+		StudentDto dto=new StudentDto(name,age,java,spring,html);
+		//list 에 추가
+		list.add(dto);
+		System.err.println(list.size()+"번째 멤버 정보를 추가하였습니다!!");
+	}
+
+	//멤버 삭제
+	public void deleteMember()
+	{
+		/*
+		 * 삭제할 이름을 입력후 해당 이름에 해당하는 멤버정보를 삭제한다
+		 * 없을경우 "xxx 님은 명단에 없습니다"
+		 * 있을경우 "xxx 님의 정보를 삭제하였습니다"
+		 */
+		boolean f=false;
+		System.out.println("삭제할 멤버명은?");
+		String name=sc.nextLine();
+		for(int i=0;i<list.size();i++)
+		{
+			StudentDto dto=list.get(i);
+			if(dto.getName().equals(name))
+			{
+				f=true;
+				list.remove(i);
+				break;
+			}
+		}
+		if(f)
+			System.out.println(name+"님의 정보를 삭제하였습니다");
+		else
+			System.out.println(name+"님은 명단에 없습니다");
+
+	}
+	
+	//전체 멤버 출력
+		public void writeMember()
+		{
+			System.out.println("\t **전체 멤버 명단** \n");
+			System.out.println("=".repeat(40));
+			System.out.println("번호\t이름\tjava\tspring\thtml\t총점\t평균\t등급");
+			System.out.println("=".repeat(40));
+			System.out.println("=".repeat(40));
+			for(int i=0;i<list.size();i++)
+			{
+				StudentDto dto=list.get(i);
+				System.out.println(i+1+"\t"+dto.getName()+"\t"+dto.getName()+"\t"+
+						dto.getJava()+"\t"+dto.getHtml()+"\t"+dto.getTotal()+"\t"+dto.getAvg()+"\t"+dto.getGrade());
+			}
+			System.out.println("=".repeat(40));
+		}
+
+		 //번호,이름,JAVA,Spring,HTML,총점,평균,등급 출력
+
+
+
+
+
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
