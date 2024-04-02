@@ -6,7 +6,7 @@ public class TestJavaEx1 {
 		// TODO Auto-generated method stub
 		System.out.println("네이버 데브옵스 11기 개강날 입니다.");
 
-		
+
 	}
 		}
 
