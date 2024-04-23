@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(function (){
+            $("#myFile").change(function (){
+                console.log($(this)) // 배열타입으로 넘어오는 것을 확인할 수 있다.
+                let reg = /(.*?)\/(jpg|jpeg|png|gif)$/
+                let f = $(this)[0].files[0]
+                if(!f.type.match(reg)){
+                    alert("이미지 파일만 가능합니다.")
+                    return
+                }
+                if(f){
+                    let reader = new FileReader()
+                    reader.onload = function (e){
+                        $("#showImg1").attr("src", e.target.result)
+                    }
+                    reader.readAsDataURL($(this)[0].files[0])
+                }
+            })
+        })
+
+        function preview(tag){
+            if(tag.files[0]){
+                // 방법 1
+                // let reg = /(.*?)\/(jpg|jpeg|png|gif)$/
+                // let f = tag.files[0]
+                // if(!f.type.match(reg)){
+                //     alert("이미지 파일만 가능합니다.")
+                //     return
+                // }
+                // 방법 2
+                let f = tag.files[0]
+                if(!f.type.match("image.*")){
+                    alert("이미지 파일만 가능합니다.")
+                    return
+                }
+                if(f){
+                    let reader = new FileReader()
+                    reader.onload = function (e){
+                        $("#showImg1").attr("src", e.target.result)
+                    }
+                    reader.readAsDataURL(tag.files[0])
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<h4>제이쿼리로 이미지 파일 미리보기 구현</h4>
+<h5>방법 1</h5>
+<input type="file" id="myFile">
+<br>
+<h5>방법 2 -> 태그에 이벤트를 직접 준 경우</h5>
+<!-- 함수를 직접 만들어 준다. -->
+<input type="file" onchange="preview(this)">
+<br>
+<h5>방법 3 -> 카메라 아이콘으로 업로드를 하고자 할 경우</h5>
+<input type="file" onchange="preview(this)" id="myFile2" style="display: none">
+<i class="bi bi-camera-fill camera" style="font-size: 30px; color: seagreen; cursor: pointer"></i>
+<br>
+<script>
+    // 카메라 아이콘 클릭시 file 3번(안보이는 상태)을 강제로 클릭한 효과 주기
+    $(".camera").click(function (){
+        $("#myFile2").trigger("click")//click 이벤트를 강제로 발생
+    })
+
+</script>
+<br>
+<img src="" alt="No Image" id="showImg1" style="max-width: 300px">
+</body>
+</html>
