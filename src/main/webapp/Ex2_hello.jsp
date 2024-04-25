@@ -77,7 +77,7 @@
             <b>취미 :</b>
         <%
             for (int i = 0; i < hobby.length; i++) {
-                out.print(hobby[]);
+                out.print(hobby[i]);
             }
         %>
         </td>
