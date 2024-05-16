@@ -18,7 +18,7 @@ public class BitServlet extends HttpServlet {
         request.setAttribute("money", 5678960);
         request.setAttribute("score", 89.345687);
 
-        RequestDispatcher rd=request.getRequestDispatcher("./day0513/test2.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("./Day0513/test2.jsp");
         rd.forward(request, response);
     }
 

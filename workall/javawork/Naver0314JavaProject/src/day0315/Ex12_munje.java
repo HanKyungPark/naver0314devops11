@@ -26,6 +26,7 @@ public class Ex12_munje {
 			((score >= 70)? ("조금 더 노력하세요!") : ("재시험입니다!")));
 			
 		System.out.println(score+ "=>" +msg);
+
 				
 		
 		

@@ -23,6 +23,9 @@ public class StudyServlet  extends HttpServlet {
         ShopDao dao = new ShopDao();
         List<ShopDto> shoplist = dao.getShopDatas();
 
+        request.setAttribute("list1", list1);
+        request.setAttribute("shoplist", shoplist);
+
         RequestDispatcher rd=request.getRequestDispatcher("./Day0513/test3.jsp");
         rd.forward(request, response);
         //경로 때문에 .. 을 . 으로 변경해서 보내보자
@@ -32,6 +35,7 @@ public class StudyServlet  extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
 
     }
 }

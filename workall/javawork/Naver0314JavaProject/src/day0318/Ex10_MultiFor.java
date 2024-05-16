@@ -19,7 +19,7 @@ public class Ex10_MultiFor {
 			for(int j=1;j<=3;j++)
 			{
 				System.out.printf("i=%d,j=%d\n",i,j);
-				break;//현재 박복문을 빠져나간다
+				break;//현재 반복문을 빠져나간다
 			}
 			System.out.println();
 

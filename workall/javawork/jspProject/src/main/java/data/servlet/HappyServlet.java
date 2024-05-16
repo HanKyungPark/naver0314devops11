@@ -21,7 +21,7 @@ public class HappyServlet extends HttpServlet {
         //문자열 저장
         request.setAttribute("flowers", "장미꽃,안개꽃,다알리아,프리지아,국화꽃,채송화,칸나");
 
-        RequestDispatcher rd=request.getRequestDispatcher("./day0513/test4.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("./Day0513/test4.jsp");
         rd.forward(request, response);
     }
 

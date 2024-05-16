@@ -16,14 +16,20 @@
     String sphoto = request.getParameter("sphoto");
     int sprice = Integer.parseInt(request.getParameter("sprice"));
     int scount = Integer.parseInt(request.getParameter("scount"));
-    //3.dto에 넣기 -setter 로 넣기 (총6개)
+    String idx = request.getParameter("shopidx");
 
+    //3.dto에 넣기 -setter 로 넣기 (총6개)
+    ShopDto dto = new ShopDto();
+    dto.setSname(sname);
+    dto.setScolor(scolor);
+    dto.setSphoto(sphoto);
+    dto.setSprice(sprice);
+    dto.setScount(scount);
+    dto.setShopidx(idx);
     //4.dao 선언
     ShopDao dao = new ShopDao();
-
     //6.update 메서드 호출
-
-
+    dao.updateShop(dto);
     //6. shoplist.jsp 로 이동
     response.sendRedirect(("shoplist.jsp"));//url 주소 바뀜
 

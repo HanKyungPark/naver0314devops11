@@ -47,11 +47,10 @@
 <hr>
 <script type="text/javascript">
     for(let i=1;i<=34;i++){
-        let s="../../shop/"+i+"."+(i==24?"gif":"jpg");
+        let s="../../image/shop/"+i+"."+(i==24?"gif":"jpg");
         document.write(`<img src="\${s}" class="photo">`);
     }
 </script>
-
 <%}
 %>
 </body>

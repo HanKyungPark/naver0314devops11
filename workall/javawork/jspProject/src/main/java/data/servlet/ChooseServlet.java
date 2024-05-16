@@ -15,7 +15,7 @@ public class ChooseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 
-        RequestDispatcher rd=request.getRequestDispatcher("./day0513/test5.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("./Day0513/test5.jsp");
         rd.forward(request, response);
     }
 

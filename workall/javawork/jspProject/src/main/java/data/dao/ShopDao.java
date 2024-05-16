@@ -71,6 +71,47 @@ public class ShopDao {
       }
             return list;
         }
+    public List<ShopDto> getShopDatas(int idx){
+        List<ShopDto> list=new Vector<ShopDto>();
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        String sql="";
+        if (idx==1)
+            sql="select * from myshop order by shopidx asc";//등록순
+        else if (idx==2)
+            sql="select * from myshop order by sprice asc";//낮은가격순
+        else if (idx==3)
+            sql="select * from myshop order by sprice desc";//높은가격순
+        else
+            sql="select * from myshop order by sname asc ";//상품명순
+
+        conn=connect.getConnection();
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                ShopDto dto=new ShopDto();
+
+                dto.setShopidx(rs.getString("shopidx"));
+                dto.setSname(rs.getString("sname"));
+                dto.setSprice(rs.getInt("sprice"));
+                dto.setScount(rs.getInt("scount"));
+                dto.setScolor(rs.getString("scolor"));
+                dto.setSphoto(rs.getString("sphoto"));
+                dto.setWriteday(rs.getTimestamp("writeday"));
+
+                //list 추가
+                list.add(dto);
+
+            }
+        }catch (SQLException e){
+            System.out.println("select 오류 :"+e.getMessage());
+        }finally {
+            connect.dbclose(rs,pstmt,conn);
+        }
+        return list;
+    }
         public ShopDto getSangpum(int shopidx){
         Connection conn=null;
         PreparedStatement pstmt=null;
@@ -89,6 +130,7 @@ public class ShopDao {
                     dto.setShopidx(rs.getString("shopidx"));
                     dto.setSname(rs.getString("sname"));
                     dto.setSprice(rs.getInt("sprice"));
+
                     dto.setScount(rs.getInt("scount"));
                     dto.setScolor(rs.getString("scolor"));
                     dto.setSphoto(rs.getString("sphoto"));
@@ -97,18 +139,50 @@ public class ShopDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }finally {
-                connect.dbclose(pstmt,conn);
+                connect.dbclose(rs,pstmt,conn);
             }
             return dto;
         }
 
     //수정
     public void updateShop(ShopDto dto) {
-        String sql="update myshop set sname=?,scolor=?,sprice=?,scount=?,sphoto=?,where shopidx=?";
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+       // String sql="insert into myshop (sname,sprice,scount,scolor,sphoto,writeday) values(?,?,?,?,?,now()) ";
+        String sql="update myshop set sname=?,scolor=?,sprice=?,scount=?,sphoto=? where shopidx=?";
+        conn=connect.getConnection();
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, dto.getSname());
+            pstmt.setString(2, dto.getScolor());
+            pstmt.setInt(3, dto.getSprice());
+            pstmt.setInt(4, dto.getScount());
+            pstmt.setString(5, dto.getSphoto());
+            pstmt.setString(6, dto.getShopidx());
+            pstmt.execute();
+        } catch (SQLException e){
+            e.printStackTrace();
+        } finally {
+            connect.dbclose(pstmt,conn);
+        }
     }
     //삭제
     public void deleteShop(int shopidx) {
         String sql="delete from myshop where shopidx=?";
+        Connection conn=null;
+        conn=connect.getConnection();
+        PreparedStatement pstmt=null;
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1, shopidx);
+            pstmt.execute();
+        } catch (SQLException e) {
+
+        }finally {
+            connect.dbclose(pstmt,conn);
+        }
+
     }
     }
 

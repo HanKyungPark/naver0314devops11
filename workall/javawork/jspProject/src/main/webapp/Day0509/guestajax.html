@@ -32,7 +32,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-
     </style>
     <script type="text/javascript">
         $(function () {
@@ -127,9 +126,9 @@
                     return;
                 }
                 $.ajax({
-                    type:"post",
-                    dataType:"html",
-                    url:"./data/update.jsp",
+                    type: "post",
+                    dataType: "html",
+                    url: "./data/update.jsp",
                     data: {"num": num, "nickname": unickname, "content": ucontent},
                     success: function () {
                         list();
@@ -196,13 +195,13 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="input-group mb-3">
-                <span class="input-group-text">닉네임</span>
-                <input type="text" class="form-control" id="unickname">
-            </div>
-            <div class="input-group">
-                <span class="input-group-text">내용</span>
-                <textarea class="form-control" id="ucontent"></textarea>
-            </div>
+                    <span class="input-group-text">닉네임</span>
+                    <input type="text" class="form-control" id="unickname">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">내용</span>
+                    <textarea class="form-control" id="ucontent"></textarea>
+                </div>
             </div>
 
             <!-- Modal footer -->

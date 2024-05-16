@@ -59,20 +59,20 @@
                 <th width="100" class="table-danger">상품가격</th>
                 <td>
                     <input type="text" name="sprice" class="form-control"
-                           required="required" value="<%=dto.getSprice()%>">>
+                           required="required" value="<%=dto.getSprice()%>">
                 </td>
             </tr>
             <tr>
                 <th width="100" class="table-danger">상품갯수</th>
                 <td>
                     <input type="number" name="scount" class="form-control"
-                           min="1" max="5" value="<%=dto.getScount()%>">>
+                           min="1" max="5" value="<%=dto.getScount()%>">
                 </td>
             </tr>
             <tr>
                 <th width="100" class="table-danger">상품색상</th>
                 <td>
-                    <input type="color" name="scolor" class="form-control" value="<%=dto.getScolor()%>">>
+                    <input type="color" name="scolor" class="form-control" value="<%=dto.getScolor()%>">
                 </td>
             </tr>
             <tr>

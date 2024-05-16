@@ -29,6 +29,7 @@
 <h6>날짜 : ${today }</h6>
 <h6>급여 : ${money }</h6>
 <h6>점수 : ${score }</h6>
+
 <hr>
 <h5>JSTL 의 fmt 양식을 이용해서 다양하게 출력해보자</h5>
 <h6 class="alert alert-info">다양한 날짜 양식들</h6>
