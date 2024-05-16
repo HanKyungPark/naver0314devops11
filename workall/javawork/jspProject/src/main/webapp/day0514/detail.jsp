@@ -27,6 +27,11 @@
 <table class="table table-bordered" style="width: 400px">
     <caption align="top">
         <b>조회수 ${dto.readcount}</b>
+        <b style="margin-left: 10px; color: gray">추천
+        &nbsp;<span class="chu">${dto.chu}</span> </b>
+        &nbsp;
+        <i class="bi bi-hand-thumbs-up mychu"
+           style="font-size: 20px;cursor: pointer"></i>
     </caption>
     <tr>
         <th class="table-success" width="100">작성자</th>
@@ -70,12 +75,42 @@
         <td colspan="2" align="center">
             <button type="submit" class="btn btn-sm btn-success"
             onclick="location.href='./form'">글쓰기</button>
-            <button type="submit" class="btn btn-sm btn-success" onclick="history.back()">수정</button>
-            <button type="submit" class="btn btn-sm btn-success"
-                    onclick="location.href='./delete'">삭제</button>
+            <button type="button" class="btn btn-sm btn-success"
+                    onclick="location.href='./updateform?num=${dto.num}&currentPage=${currentPage}'">수정</button>
+            <button type="button" class="btn btn-sm btn-success"
+                    onclick="del()">삭제</button>
             <button type="submit" class="btn btn-sm btn-success" onclick="location.href='./list?currentPage=${currentPage}'">목록</button>
         </td>
     </tr>
 </table>
+<script type="text/javascript">
+
+    function del()
+    {
+        let num=${dto.num};
+        let cp=${currentPage};
+        console.log(num,cp);
+
+        let a=confirm("해당 게시글을 삭제하시겠습니까?");
+        if(a){
+            location.href=`./delete?num=\${num}&currentPage=\${cp}`;
+        }
+    }
+
+    //추천 클릭시 숫자 증가
+    $(".mychu").click(function () {
+        let num=${dto.num};
+        $.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"num":num},
+            url:"./updatechu",
+            success: function (data) {
+                $("span.chu").text(data.chu);
+            },
+        })
+    });
+</script>
 </body>
+
 </html>

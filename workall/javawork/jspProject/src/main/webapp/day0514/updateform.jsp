@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: hankyung
   Date: 5/14/24
-  Time: 10:16 AM
+  Time: 10:08 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -20,10 +20,85 @@
         body * {
             font-family: 'Jua';
         }
-    </style>
 
+        .selectavata{
+            border: 2px solid red;
+            box-shadow: 3px 3px 3px gray;
+            border-radius: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            //첫 아바타는 인덱스가 0번이므로 실제avata 값에서 1을 뺀후 클래스 적용
+            $("img.avata").eq(${dto.avata-1}).addClass("selectavata");
+
+            $("img.avata").click(function () {
+                $(this).siblings().removeClass("selectavata");//다른아바타의 class 제거
+                $(this).addClass("selectavata");//클릭한곳의 class추가
+                $("#avata").val($(this).attr("n"));//태그의 n값을 얻어서 input태그에 넣음
+            });
+        });
+    </script>
 </head>
 <body>
-updateform
+<div style="margin: 30px">
+    <form action="./update" method="post">
+        <!--hidden -->
+        <input type="hidden" name="num" value="${dto.num}">
+        <input type="hidden" name="currentPage" value="${currentPage}">
+        <table class="table table-bordered" style="width: 400px">
+            <caption align="top">
+                <b>글쓰기</b>
+            </caption>
+            <tr>
+                <th class="table-success" width="100">작성자</th>
+                <td>
+                    <input type="text" class="form-control"
+                           name="writer" required="required"
+                    value="${dto.writer}">
+
+                </td>
+            </tr>
+            <tr>
+                <th class="table-success" width="100">아바타</th>
+                <td>
+                    <!-- 확인후 hidden 으로 수정 할것임-->
+                    <input type="hidden" name="avata" id="avata" value="${dto.avata}">
+                    <!-- 아바타 클릭시 1~10 사이 숫자가 hidden 에 들어가도록 제이쿼리로 코딩 -->
+                    <c:forEach var="a" begin="1" end="10">
+                        <c:if test="${a==6}"><br></c:if>
+                        <img src="../image/snoopyAvata/s${a}.JPG"
+                             width="40"height="40"border="1"
+                             class="avata" style="cursor: pointer"
+                             n="${a}">
+                    </c:forEach>
+                </td>
+            </tr>
+            <tr>
+                <th class="table-success" width="100">제목</th>
+                <td>
+                    <input type="text" class="form-control"
+                           name="subject" required="required"
+                    value="${dto.subject}">
+                </td>
+            </tr>
+            <tr>
+                <th class="table-success" width="100">내용</th>
+                <td>
+          <textarea style="width: 100%;height: 120px;"
+                    name="content" required="required">${dto.content}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" class="btn btn-sm btn-success">게시글 수정</button>
+                    <button type="submit" class="btn btn-sm btn-success" onclick="history.back()">이전으로</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
 </body>
 </html>
