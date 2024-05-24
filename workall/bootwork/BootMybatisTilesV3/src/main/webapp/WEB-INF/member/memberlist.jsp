@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: hankyung
-  Date: 5/21/24
-  Time: 11:09 AM
+  Date: 5/23/24
+  Time: 11:52 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -45,14 +45,15 @@
     <c:forEach var="s" items="${list}" varStatus="i">
         <tr>
             <th>${i.count}</th>
-            <th><img src="/resources/${s.photo}" width="50px" height="50px"
-            style="border-radius: 50%"> ${s.name}</th>
+            <th><img src="/save/${s.photo}" width="50px" height="50px"
+                     style="border-radius: 50%" onerror="this.src='../image/no1.png'"> ${s.name}</th>
+
 
             <th>${s.myid}</th>
             <th>${s.hp}</th>
             <td>
                 <button type="button" class="btn btn-sm btn-info"
-                onclick="location.href='./detail?num=${s.num}'">Detail</button>
+                        onclick="location.href='./detail?num=${s.num}'">Detail</button>
             </td>
         </tr>
     </c:forEach>

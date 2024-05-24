@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -35,5 +36,26 @@ public class MemberDao {
 
     public List<MemberDto> getAllMembers() {
         return session.selectList(namespace+"selectAllMembers");
+    }
+
+    public MemberDto getData(int num) {
+        return session.selectOne(namespace + "selectByNumData", num);
+    }
+
+    public void updatePhoto(Map<String, Object> map) {
+        session.update(namespace + "updatePhoto", map);
+    }
+
+    public void updateMember(MemberDto dto) {
+        session.update(namespace + "updateMember", dto);
+    }
+
+    public boolean inEqualPassCheck(Map<String, Object> map) {
+        int n = session.selectOne(namespace + "equalPassCheck", map);
+        return n==1?true:false;//1이면 비번이 맞은경우니까 true 반환
+    }
+
+    public void deleteMember(int num) {
+        session.delete(namespace + "deleteMember", num);
     }
 }

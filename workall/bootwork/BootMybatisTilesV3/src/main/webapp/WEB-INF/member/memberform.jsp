@@ -84,7 +84,7 @@
 </head>
 <body>
 <form action="./insert" method="post" enctype="multipart/form-data"
-onsubmit="return check()">
+      onsubmit="return check()">
     <table class="table table-bordered" style="width: 400px">
         <caption align="top">
             <h3><b>회원 가입</b></h3>
@@ -93,18 +93,18 @@ onsubmit="return check()">
             <th width="100" class="table-info">이름</th>
             <td colspan="2">
                 <input type="text" name="name" class="form-control"
-                required="required">
+                       required="required">
             </td>
         </tr>
         <tr>
             <th width="100" class="table-info">아이디</th>
             <td colspan="2">
                 <div class="input-group">
-                <input type="text" name="myid" id="myid" class="form-control"
-                       required="required">
-                &nbsp;
-                <button type="button" class="btn btn-sm btn-danger"
-                id="btncheckid">중복확인</button>
+                    <input type="text" name="myid" id="myid" class="form-control"
+                           required="required">
+                    &nbsp;
+                    <button type="button" class="btn btn-sm btn-danger"
+                            id="btncheckid">중복확인</button>
                 </div>
             </td>
         </tr>
@@ -131,7 +131,7 @@ onsubmit="return check()">
             <td width="200" colspan="2">
                 <input type="number" name="hp" class="form-control"
                        required="required" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-                placeholder="xxx-xxx-xxxx">
+                       placeholder="xxx-xxx-xxxx">
             </td>
         </tr>
         <tr>
@@ -158,7 +158,7 @@ onsubmit="return check()">
         <tr>
             <td colspan="3" align="center">
                 <button type="submit" class="btn btn-outline-danger"
-                style="width: 100px">회원가입</button>
+                        style="width: 100px">회원가입</button>
 
                 <button type="reset" class="btn btn-outline-danger"
                         style="width: 100px">초기화</button>
