@@ -28,8 +28,11 @@ public interface MemberMapperInter {
     @Select("select * from memberdb where num=#{num}")
     public MemberDto getData(int num);
 
+    @Select("select * from memberdb where myid=#{myid}")
+    public MemberDto getDatabyid(String myid);
+
     @Update("update memberdb set photo=#{photo} where num=#{num}")
-    public void updateMember(Map<String,Object>map);
+    public void updateMember(Map<String, Object> map);
 
     @Update("update memberdb set name=#{name},addr=#{addr},hp=#{hp},email=#{email} where num=#{num}")
     public void updateMember2(MemberDto dto);
@@ -39,4 +42,7 @@ public interface MemberMapperInter {
 
     @Select("select count(*) from memberdb where num=#{num} and passwd=#{passwd}")
     public int getMemberCount(int num, String passwd);
+
+    @Select(" select count(*) from memberdb where myid=#{myid} and passwd=#{pass}")
+    public int isLoginCheck(String myid, String pass);
 }

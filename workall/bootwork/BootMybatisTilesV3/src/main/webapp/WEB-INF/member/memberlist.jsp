@@ -32,8 +32,16 @@
                 onclick="location.href='./form'">멤버등록</button>
     </span>
 </h2>
-
-
+<!-- admon 이 아닌계정으로 로그인을 했거나 로그인상태가 아닐경우 보여질 메세지 -->
+<c:if test="${sessionScope.loginok=null or sessionScope.loginid!='admin'}">
+    <h2>
+    <b>
+    전체 회원 명단은 관리자만 확인 가능합니다.
+    </b>
+    </h2>
+</c:if>
+<!-- admin 계정으로 로그인시에만 전체 명단을 확인할수 있다-->
+<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin'}">
 <table class="table table-bordered" style="width: 400px">
     <tr>
         <th width="100" class="table-info">번호</th>
@@ -58,5 +66,7 @@
         </tr>
     </c:forEach>
 </table>
+</c:if>
+
 </body>
 </html>

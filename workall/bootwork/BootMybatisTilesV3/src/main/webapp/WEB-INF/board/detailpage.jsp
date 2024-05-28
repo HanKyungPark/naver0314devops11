@@ -1,0 +1,105 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: hankyung
+  Date: 5/28/24
+  Time: 11:40 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<html>
+<head>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+<table class="table" style="width: 500px;">
+    <tr>
+        <td>
+            <h2><b>${dto.subject}</b></h2>
+            <!-- 프로필 사진 -->
+            <img src="../save/${profile_photo}"
+                 onerror="this.src='../image/no1.png'"
+                 style="width: 45px;height: 45px;margin-right:5px;"
+                 class="rounded-circle" align="left">
+            <b>${dto.writer}</b><br>
+            <span style="color: gray;font-size: 13px;">
+			  	<fmt:formatDate value="${dto.writeday}"
+                                pattern="yyyy.MM.dd HH:mm"/>
+			  	 &nbsp; &nbsp;
+			  	 조회 &nbsp;${dto.readcount}
+			  </span>
+            <span style="float: right;color: gray;">
+			  	<i class="bi bi-chat-dots"></i>
+			  	&nbsp;
+			  	댓글 0
+			  </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <c:if test="${dto.uploadphoto!='no'}">
+                <img src="../save/${dto.uploadphoto}"
+                     onerror="this.src='../image/no1.png'"
+                     style="max-width: 300px;">
+                <br><br>
+            </c:if>
+            <pre style="font-size: 17px;">${dto.content}</pre>
+        </td>
+    </tr>
+    <tr>
+        <td class="buttons">
+            <!-- 새글 -->
+            <button type="button" class="btn btn-sm btn-outline-success"
+                    onclick="location.href='./form'">
+                <i class="bi bi-pencil-fill"></i>
+                글쓰기</button>
+
+            <!-- 답글 -->
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+                    onclick="location.href='./form?num=${dto.num}&regroup=${dto.regroup}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">
+                답글</button>
+
+            <!-- 수정,삭제는 로그인중이며 자기가 쓴글에만 나타나게 하기 -->
+            <c:if
+                    test="${sessionScope.loginok!=null and sessionScope.loginid==dto.myid}">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                        onclick="location.href='./updateform?num=${dto.num}&currentPage=${currentPage}'">
+                    수정</button>
+
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                        onclick="del()">
+                    삭제</button>
+            </c:if>
+
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+                    onclick="location.href='./list?currentPage=${currentPage}'">
+                목록</button>
+        </td>
+    </tr>
+</table>
+<script>
+    function del() {
+        let num=${dto.num};
+        let currentPage=${currentPage};
+
+        let a = confirm("정말 삭제하시겠습니까?");
+        if (a) {
+            location.href="./delete?num="+num+"&currentPage="+currentPage;
+        }
+    }
+</script>
+</body>
+</html>

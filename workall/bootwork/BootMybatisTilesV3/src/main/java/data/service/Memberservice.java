@@ -1,6 +1,7 @@
 package data.service;
 
 import data.dto.MemberDto;
+import data.dto.ReBoardDto;
 import data.mapper.MemberMapperInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,9 @@ public class Memberservice {
     public MemberDto getData(int num){
         return memInter.getData(num);
     }
+    public MemberDto getDatabyid(String myid) {
+        return memInter.getDatabyid(myid);
+    }
 
     public void updateMember(int num, String photo) {
         Map<String, Object> map = new HashMap<>();
@@ -56,5 +60,10 @@ public class Memberservice {
     public void deleteMember(int num) {
         memInter.deleteMember(num);
     }
+
+    public boolean isLoginCheck(String myid, String pass) {
+        return memInter.isLoginCheck(myid, pass)==1;
+    }
+
 
 }
