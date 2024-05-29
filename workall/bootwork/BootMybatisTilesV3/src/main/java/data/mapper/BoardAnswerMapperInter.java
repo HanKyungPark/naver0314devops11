@@ -10,10 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface BoardAnswerMapperInter {
-    @Insert("""
-    insert into boardanswer(num,writer,myid,content,writeday)
-    values (#{num},#{writer},#{myid},#{content},now())
-""")
+    @Insert("insert into boardanswer(num,writer,myid,content,writeday) values (#{num},#{writer},#{myid},#{content},now())")
 
     public void insertAnswer(BoardAnswerDto dto);
 

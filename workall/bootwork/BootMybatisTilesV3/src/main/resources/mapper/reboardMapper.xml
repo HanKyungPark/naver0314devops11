@@ -7,7 +7,7 @@
         from reboard;
     </select>
     <update id="updateRestep" parameterType="Map">
-        #     update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}
+
         update reboard
         set restep=restep + 1
         where regroup = #{regroup}

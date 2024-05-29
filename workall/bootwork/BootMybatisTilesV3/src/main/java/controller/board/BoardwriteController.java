@@ -57,7 +57,6 @@ public class BoardwriteController {
             HttpServletRequest request,
             HttpSession session
             ) {
-
         //업로드할 폴더
         String saveFolder = request.getSession().getServletContext().getRealPath("/save");
         //업로드하지 않았을경우 "no",업로드했을경우 랜덤파일명으로 저장
@@ -90,6 +89,7 @@ public class BoardwriteController {
 
         //db insert
         boardService.insertBoard(dto);
+
 
         //확인할거...추가후 저장된 시퀀스값
         System.out.println("num="+dto.getNum());

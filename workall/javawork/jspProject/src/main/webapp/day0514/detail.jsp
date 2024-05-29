@@ -74,7 +74,7 @@
     <tr>
         <td colspan="2" align="center">
             <button type="submit" class="btn btn-sm btn-success"
-            onclick="location.href='./form'">글쓰기</button>
+            onclick="location.href='./form'">글작성</button>
             <button type="button" class="btn btn-sm btn-success"
                     onclick="location.href='./updateform?num=${dto.num}&currentPage=${currentPage}'">수정</button>
             <button type="button" class="btn btn-sm btn-success"

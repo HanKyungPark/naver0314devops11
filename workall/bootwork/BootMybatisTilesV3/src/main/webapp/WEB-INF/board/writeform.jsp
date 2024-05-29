@@ -45,7 +45,7 @@
             if (f) {
                 let reader = new FileReader()
                 reader.onload = function (e) {
-                    $("#showImg1").attr("src", e.target.result)
+                    $("#showimg").attr("src", e.target.result)
                 }
                 reader.readAsDataURL($(this)[0].files[0])
             }
@@ -76,7 +76,7 @@
         <tr>
             <th width="100" class="table-warning">사진</th>
             <td>
-                <img src="" id="showimg"
+                <img src="" id="showimg" style="width: 100px"
                      onerror="this.src='../image/no1.png'">
                 <input type="file" name="upload" id="upload" class="form-control">
             </td>
