@@ -24,6 +24,7 @@
         }
     </style>
 </head>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
 <body>
 <h2 class="alert alert-danger" style="width: 500px">
     총 ${totalCount}명의 회원이 있습니다.
@@ -33,15 +34,15 @@
     </span>
 </h2>
 <!-- admon 이 아닌계정으로 로그인을 했거나 로그인상태가 아닐경우 보여질 메세지 -->
-<c:if test="${sessionScope.loginok=null or sessionScope.loginid!='admin'}">
-    <h2>
-    <b>
-    전체 회원 명단은 관리자만 확인 가능합니다.
-    </b>
-    </h2>
-</c:if>
+<%--<c:if test="${sessionScope.loginok=null or sessionScope.loginid!='admin'}">--%>
+<%--    <h2>--%>
+<%--    <b>--%>
+<%--    전체 회원 명단은 관리자만 확인 가능합니다.--%>
+<%--    </b>--%>
+<%--    </h2>--%>
+<%--</c:if>--%>
 <!-- admin 계정으로 로그인시에만 전체 명단을 확인할수 있다-->
-<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin'}">
+<%--<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin'}">--%>
 <table class="table table-bordered" style="width: 400px">
     <tr>
         <th width="100" class="table-info">번호</th>
@@ -53,7 +54,7 @@
     <c:forEach var="s" items="${list}" varStatus="i">
         <tr>
             <th>${i.count}</th>
-            <th><img src="/save/${s.photo}" width="50px" height="50px"
+            <th><img src="${stpath}/${s.photo}" width="50px" height="50px"
                      style="border-radius: 50%" onerror="this.src='../image/no1.png'"> ${s.name}</th>
 
 
@@ -66,7 +67,7 @@
         </tr>
     </c:forEach>
 </table>
-</c:if>
+<%--</c:if>--%>
 
 </body>
 </html>

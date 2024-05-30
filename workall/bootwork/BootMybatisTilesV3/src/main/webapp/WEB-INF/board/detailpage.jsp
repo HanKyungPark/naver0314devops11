@@ -34,6 +34,7 @@
             font-size: 0.9em;
         }
     </style>
+    <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
     <script type="text/javascript">
         $(function () {
             //처음 로딩시 댓글 목록 출력
@@ -134,7 +135,7 @@
         <td>
             <h2><b>${dto.subject}</b></h2>
             <!-- 프로필 사진 -->
-            <img src="../save/${profile_photo}"
+            <img src="${stpath}/${profile_photo}"
                  onerror="this.src='../image/no1.png'"
                  style="width: 45px;height: 45px;margin-right:5px;"
                  class="rounded-circle" align="left">
@@ -155,7 +156,7 @@
     <tr>
         <td>
             <c:if test="${dto.uploadphoto!='no'}">
-                <img src="../save/${dto.uploadphoto}"
+                <img src="${stpath}/${dto.uploadphoto}"
                      onerror="this.src='../image/no1.png'"
                      style="max-width: 300px;">
                 <br><br>

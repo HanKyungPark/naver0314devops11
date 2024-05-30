@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -25,6 +25,20 @@
     </style>
 </head>
 <body>
-방명록 목록
+<!--방명록 입력은 로그인을 해야만 한다-->
+<c:if test="${sessionScope.loginok!=null}">
+<div class="guestformarea" style="width: 400px">
+        <textarea style="width: 100%;height: 120px"
+        id="gcontent" class="form-control"></textarea>
+    <br>
+    <input type="file" id="photoupload" multiple="multiple">
+    <button type="button" id="btnaddguest"
+            class="btn btn-sm btn-info">등록</button>
+</div>
+<hr>
+</c:if>
+<div class="guestlistarea">
+    방명록 목록이 나올 영역
+</div>
 </body>
 </html>

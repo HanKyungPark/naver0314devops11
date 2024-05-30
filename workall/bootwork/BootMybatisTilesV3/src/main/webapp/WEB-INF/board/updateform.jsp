@@ -23,6 +23,7 @@
             font-family: 'Jua';
         }
     </style>
+    <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
 </head>
 <c:if test="${sessionScope.loginok==null}">
     <script type="text/javascript">
@@ -35,7 +36,7 @@
 
     $(function () {
         $("#upload").change(function () {
-            console.log($(this)) // 배열타입으로 넘어오는 것을 확인할 수 있다.
+            // console.log($(this)[0]); // 배열타입으로 넘어오는 것을 확인할 수 있다.
             let reg = /(.*?)\/(jpg|jpeg|png|gif)$/
             let f = $(this)[0].files[0]
             if (!f.type.match(reg)) {
@@ -45,7 +46,7 @@
             if (f) {
                 let reader = new FileReader()
                 reader.onload = function (e) {
-                    $("#showImg1").attr("src", e.target.result)
+                    $("#showImg").attr("src", e.target.result)
                 }
                 reader.readAsDataURL($(this)[0].files[0])
             }
@@ -73,7 +74,7 @@
         <tr>
             <th width="100" class="table-warning">사진</th>
             <td>
-                <img src="../save/${dto.uploadphoto}" id="showimg"
+                <img src="${stpath}/${dto.uploadphoto}" id="showimg"
                      onerror="this.src='../image/no1.png'">
                 <b>사진을 선택하지 않으면 기존사진이 유지됩니다</b><br>
                 <input type="file" name="upload" id="upload" class="form-control">

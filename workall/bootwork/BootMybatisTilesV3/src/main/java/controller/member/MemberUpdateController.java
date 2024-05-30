@@ -4,6 +4,8 @@ import data.dto.MemberDto;
 import data.service.Memberservice;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import naver.cloud.NcpObjectStorageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,12 @@ public class MemberUpdateController {
 
     @NonNull
     private Memberservice memberservice;
+    private String bucketName="bitcamp-bucket-56";
+    private String folderName = "photocommon";
+
+    @Autowired
+    private NcpObjectStorageService storageService;
+
 
     @ResponseBody
     @PostMapping("/upload")
@@ -32,19 +40,8 @@ public class MemberUpdateController {
             HttpServletRequest request
             ) {
 
-        String savePath = request.getSession().getServletContext().getRealPath("/save");
-
-        //업로드한 파일의 확장자 분리
-        String ext = upload.getOriginalFilename().split("\\.")[1];
-        //업로드할 파일명
-        String photo = UUID.randomUUID() + "." + ext;
-
-        //실제 업로드
-        try {
-            upload.transferTo(new File(savePath+"/"+photo));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//
+        String photo= storageService.uploadFile(bucketName,folderName,upload);
         //db 에서 photo 수정
         memberservice.updateMember(num, photo);
         Map<String, String> map = new HashMap<>();

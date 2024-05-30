@@ -74,6 +74,11 @@
                         <i class="bi bi-image"
                            style="color: gray"></i>
                     </c:if>
+
+                    <!--댓글이 있는경우만 갯수 출력-->
+                    <c:if test="${dto.recount>0}">
+                        <span style="color:red">(${dto.recount})</span>
+                    </c:if>
                 </a>
             </td>
             <td>

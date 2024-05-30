@@ -1,6 +1,7 @@
 package controller.board;
 
 import data.dto.ReBoardDto;
+import data.service.BoardAnswerService;
 import data.service.ReBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,14 +17,17 @@ public class BoardListController {
     @Autowired
     private ReBoardService boardService;
 
+    @Autowired
+    private BoardAnswerService answerService;
+
     @GetMapping("board/list")
     public String list(
             @RequestParam(defaultValue = "1") int currentPage,
             Model model
     ) {
         //총 글의 갯수
-        int totalCount=boardService.getTotalCount();
-        int perPage = 5;//한페이지당 보여질 글의 갯수
+        int totalCount = boardService.getTotalCount();
+        int perPage = 10;//한페이지당 보여질 글의 갯수
         int perBlock = 5;//현재블력에 보여질 페이지의 갯수
         int start;//db에서 가져올 시작번호
         int startPage;//각 블럭에 보여질 시작페이지
@@ -48,8 +52,16 @@ public class BoardListController {
         //각 페이지에 출력할 시작번호
         //총 갯수가 20개일경우 1페이지는 20,2페이지는 15...
         no = totalCount - (currentPage - 1) * perPage;
+
+
         //목록 가져오기
         List<ReBoardDto> list = boardService.getPaginList(start, perPage);
+
+        //list의 각 dto 에 댓글 갯수 저장하기
+        for (ReBoardDto dto:list) {
+
+            dto.setRecount(answerService.getAnswerData(dto.getNum()).size());
+        }
         //model 에 필요한 데이타 저장
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("list", list);
