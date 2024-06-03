@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: BootMybatisTitlesV3
+  datasource:
+  #    url: jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul
+  #    username: root
+  #    password: 1234
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  #포워드를 jsp 에서 tiles 로 변경했으므로 주석처리
+  #  mvc:
+  #    view:
+  #      prefix: /WEB-INF/
+  #      suffix: .jsp
+
+  #gangsa mysql db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-n8650-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul
+    username: study
+    password: bitcamp!@#123
+
+mybatis:
+  type-aliases-package: data.dto
+  mapper-locations: classpath:mapper/**/*.xml
+server:
+  port: 9000
