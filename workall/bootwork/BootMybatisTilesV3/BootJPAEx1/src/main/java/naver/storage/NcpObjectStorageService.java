@@ -1,12 +1,4 @@
-package naver.cloud;
-
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
-
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+package naver.storage;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -16,6 +8,11 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.InputStream;
+import java.util.UUID;
 
 @Service
 public class NcpObjectStorageService implements ObjectStorageService {
@@ -41,9 +38,7 @@ public class NcpObjectStorageService implements ObjectStorageService {
         }
 
         try (InputStream fileIn = file.getInputStream()) {
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
-
-            String filename =sdf.format(new Date())+"_"+UUID.randomUUID().toString();
+            String filename = UUID.randomUUID().toString();
 
             ObjectMetadata objectMetadata = new ObjectMetadata();
             objectMetadata.setContentType(file.getContentType());
