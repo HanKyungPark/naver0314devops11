@@ -1,8 +1,6 @@
 package naver.cloud;
 
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -41,9 +39,7 @@ public class NcpObjectStorageService implements ObjectStorageService {
         }
 
         try (InputStream fileIn = file.getInputStream()) {
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
-
-            String filename =sdf.format(new Date())+"_"+UUID.randomUUID().toString();
+            String filename = UUID.randomUUID().toString();
 
             ObjectMetadata objectMetadata = new ObjectMetadata();
             objectMetadata.setContentType(file.getContentType());

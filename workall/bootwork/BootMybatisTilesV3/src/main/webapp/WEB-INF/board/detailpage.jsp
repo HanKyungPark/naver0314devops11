@@ -33,26 +33,12 @@
             color: gray;
             font-size: 0.9em;
         }
-
-        div.trans{
-            position: absolute;
-            top: 150px;
-            left: 550px;
-            width: 500px;
-
-
-        }
-
     </style>
     <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
     <script type="text/javascript">
         $(function () {
             //처음 로딩시 댓글 목록 출력
             answer_list();
-
-            //처음 시작시 content 번역
-
-            trans_content();
 
             //댓글 추가 버튼
             $("#btnansweradd").click(function () {
@@ -95,42 +81,7 @@
                     })
                 }
             });
-            //번역 언어 선택 이벤트
-            $("#seltrans").change(function () {
-                trans_content();
-            });
-        });//close function
-
-
-
-        //번역해서 가져오는 함수
-        function trans_content() {
-            //번역할 문장
-            let text=`${dto.content}`;
-            console.log(text);
-            //번역할 언어코드
-            let lang = $("#seltrans").val();
-            console.log(text);
-            console.log(lang);
-
-            $.ajax({
-                type:"post",
-                dataType:"text",
-                url:"./trans",
-                data:{"text":text,"lang":lang},
-                success: function (data) {
-                    console.log(data); // json 형식의 문자열
-                    console.log(typeof (data))//String 으로 출력됨
-                    //String 타입을 Json 타입으로 변환
-                    let m = JSON.parse(data);
-                    console.log(typeof (m));
-                    //번역된 텍스트만 추출
-                    let s=m.message.result.translatedText;
-                    console.log(s);
-                    $("#trans_lang").html(s);
-                },
-            })
-        }
+        });
 
         function answer_list() {
             let num = ${dto.num}
@@ -138,9 +89,10 @@
                 let loginok='${sessionScope.loginok}';
                 let loginid='${sessionScope.loginid}';
 
+
                 $.ajax({
                     type: "get",
-                    dataType:"json",
+                    dataType: "json",
                     data: {"num": num},
                     url: "./alist",
                     success: function (data) {
@@ -178,20 +130,6 @@
     </script>
 </head>
 <body>
-<div class="trans">
-    <div class="input-group">
-        <b>번역할 언어 선택</b>
-        <select id="seltrans" class="form-select" style="width: 130px;margin-left: 10px">
-            <option value="en">영어</option>
-            <option value="ja">일어</option>
-            <option value="zh-CN">중국어</option>
-            <option value="es">스페인어</option>
-            <option value="fr">프랑스어</option>
-        </select>
-    </div>
-    <pre id="trans_lang" style="margin-top: 20px;font-size: 25px;white-space: pre-wrap;word-wrap: break-word;width: 400px">111</pre>
-
-</div>
 <table class="table" style="width: 500px;">
     <tr>
         <td>
