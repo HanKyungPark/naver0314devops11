@@ -69,6 +69,8 @@ public class MycarController {
         model.addAttribute("totalPage", result.getTotalPages());//총 페이지수
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("list", result.getContent());
+
+
         return "mycar/mycarlist";
     }
 

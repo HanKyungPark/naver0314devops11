@@ -44,7 +44,9 @@
             <img th:src="@{https://tnmmoijq3713.edge.naverncp.com/fMYH6eWuV5/mycar/{photo}?type=f&w=40&h=40&faceopt=true&ttype=jpg(photo=${dto.carphoto})}"
             hspace="10" border="1">
             [[${dto.carname}]]
-            [[${dto.commentcount}]]
+                <span style="color: red" th:if="${dto.commentcount!=0}">
+                    ([[${dto.commentcount}]])
+                </span>
             </a>
         </td>
         <td align="right">

@@ -11,20 +11,19 @@ import java.util.List;
 
 @Repository
 @AllArgsConstructor
-public class MyCarDao{
+public class MyCarDao {
 
     private MyCarDaoInter daoInter;
     private MycarCommentDaoInter daoCommentInter;
+
     //db저장
     public void insertCar(MycarDto dto) {
         daoInter.save(dto);//num 타입이 포함되어있을경우 자동으로 update 실행, 없을경우 자동으로 insert 실행
     }
+
     //전체 목록 출력
-    public List<MycarDto> getAllCars(){
-        List<MycarDto> list=daoInter.findAll();
-        for(int i=0; i<list.size(); i++){
-            list.get(i).setCommentcount(daoCommentInter.getMycarCommentList(list.get(i).getNum()).size());
-        }
+    public List<MycarDto> getAllCars() {
+
 
 
         //return daoInter.findAll(); // 추가된 순서로 반환
@@ -58,6 +57,10 @@ public class MyCarDao{
     //페이지 출력
     public Page<MycarDto> getAllCars(Pageable pageable) {
 
+        List<MycarDto> list = daoInter.findAll();
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).setCommentcount(daoCommentInter.getMycarCommentList(list.get(i).getNum()).size());
+        }
         return daoInter.findAll(pageable);//페이지에 필요한만큼만 데이타 반환
     }
 

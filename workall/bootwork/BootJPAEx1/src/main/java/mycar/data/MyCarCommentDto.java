@@ -14,7 +14,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "mycar_comment")//��이블명
+@Table(name = "mycar_comment")
 @Data
 @Builder
 @AllArgsConstructor
