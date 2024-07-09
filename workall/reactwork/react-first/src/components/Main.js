@@ -15,7 +15,7 @@ const Main=()=>{
     const [idx,setIdx]=useState(6)
         return(
             <div>
-                <SixApp/>
+                {/* <SixApp/>
                 <hr/>
                 <FiveApp/>
                 <hr/>
@@ -25,8 +25,8 @@ const Main=()=>{
                 <hr/>
                 <TwoApp/>
                 <hr/>
-                <OneApp/>
-                {/* <h1>2024-07-08 리액트 첫수업</h1>
+                <OneApp/> */}
+                <h1>2024-07-08 리액트 첫수업</h1>
                 <select className="form-select" style={{width:'200px'}}
                 onChange={(e)=>setIdx(Number(e.target.value))}>
                     <option value={1}>1번 컴포넌트</option>
@@ -41,7 +41,7 @@ const Main=()=>{
                     idx===1?<OneApp/>:idx===2?<TwoApp/>:
                     idx===3?<ThreeApp/>:idx===4?<FourApp/>:
                     idx===5?<FiveApp/>:<SixApp/>
-                } */}
+                }
             </div>
             )
 }
