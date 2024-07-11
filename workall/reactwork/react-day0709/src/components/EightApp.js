@@ -15,7 +15,7 @@ const EightApp = () => {
     return (
         <div>
             <Alert>EightApp-table 을 이용해서 출력</Alert>
-            <table className="table table-bordered" style={{ width: "500px" }}>
+            {/* <table className="table table-bordered" style={{ width: "500px" }}>
                 <thead>
                     <tr>
                         <th>번호</th>
@@ -36,6 +36,29 @@ const EightApp = () => {
                         </tr>
                     ))}
                 </tbody>
+            </table> */}
+            <table className='table table-bordered' style={{width:"500px"}}>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>사진</th>
+                        <th>주소</th>
+                        <th>나이</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {personArray.map((item,idx)=>(
+                    <tr key={idx}>
+                        <td>{idx+1}</td>
+                        <td>{item.pname}</td>
+                        <td><img alt='' src={require(`../image/${item.photo}`)} className='smallphoto'/></td>
+                        <td>{item.addr}</td>
+                        <td>{item.age}</td>
+                    </tr>
+                   ))}
+                </tbody>
+
             </table>
         </div>
     );
