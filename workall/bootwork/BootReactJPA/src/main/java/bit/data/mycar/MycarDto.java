@@ -1,6 +1,8 @@
-package mycar.data;
+package bit.mycar.data;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +18,8 @@ import java.sql.Timestamp;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})//오류가 날 경우 추가 불필요한 직렬화를 막기위한 어노테이션
+
 public class MycarDto {
     @Id //각 엔터티를 구별할수 있도록 식별 아이디를 갖도록 설계
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +34,15 @@ public class MycarDto {
     @Column(length = 20)
     private String carcolor;
 
-    @Column(length = 20)
+    @Column(length = 20,updatable = false)
     private String carguip;
 
-    @Column(length = 100)
+    @Column(length = 100,updatable = false)
     private String carphoto;
 
     @CreationTimestamp // 현재시간으로 세팅
     @Column(updatable = false) //수정시 컬럼 제외
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
     private Timestamp writeday;
 
     // @Transient : 테이블의 컬럼으로는 생성되지않고 객체에서만 사용가능한 멤버변수
