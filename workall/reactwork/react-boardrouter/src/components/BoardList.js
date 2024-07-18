@@ -2,15 +2,16 @@ import { Alert } from "@mui/material";
 import  axios  from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import noimage from '../image/no1.png';
 
 const BoardList=()=>{
+
     const [boardList,setBoardList]=useState([]);
     const getDataList=()=>{
         axios.get("/boot/board/list")
         .then(res=>{
             setBoardList(res.data);
         });
-
     }
 
     const storage=process.env.REACT_APP_STORAGE;
@@ -46,7 +47,7 @@ const BoardList=()=>{
                                 <NavLink to={`/board/detail/${row.boardnum}`}
                                 style={{textDecoration:'none',color:'black'}}>
                                     <img alt="" src={`${storage}/${row.photo}`}
-                                    style={{width:'40px',height:'40px'}}/>
+                                    style={{width:'40px',height:'40px'}} />
                                     {row.subject}
                                     
 

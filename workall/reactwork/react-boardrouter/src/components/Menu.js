@@ -12,6 +12,7 @@ const Menu=()=>{
                 <li>
                 <NavLink to={'/board/list'}>목록</NavLink>
             </li>
+        
         </ul>
     )
 }
