@@ -9,6 +9,8 @@ import Home from "../components/Home";
 
 import UpdateForm from "../components/UpdateForm";
 import UpdatePassForm from "../components/UpdatePassForm";
+import DaumPostApp from "../components/DaumPostApp";
+import SweetAlertApp from "../components/SweetAlertApp";
 
 const RouterMain = () => {
     return (
@@ -24,7 +26,10 @@ const RouterMain = () => {
                     <Route path="updatepassform/:boardnum" element={<UpdatePassForm/>}/>
                     <Route path="update/:boardnum" element={<UpdateForm />} />
                 </Route>
+                <Route path="/post" element={<DaumPostApp/>}/>
+                <Route path="/sweet" element={<SweetAlertApp/>}/>
             </Routes>
+
         </div>
     )
 }

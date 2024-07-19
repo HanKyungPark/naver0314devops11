@@ -12,6 +12,12 @@ const Menu=()=>{
                 <li>
                 <NavLink to={'/board/list'}>목록</NavLink>
             </li>
+            <li>
+                <NavLink to={'/post'}>카카오주소</NavLink>
+            </li>
+            <li>
+                <NavLink to={'/sweet'}>SweetAlert</NavLink>
+            </li>
         
         </ul>
     )

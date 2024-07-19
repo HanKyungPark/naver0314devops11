@@ -12,9 +12,7 @@ const UpdateForm = () => {
     const [photo, setPhoto] = useState('no');
     const [content,setContent] = useState('');
     const { boardnum } = useParams();
-
     const navi = useNavigate();
-
     const fileRef = useRef(null);
     const contentRef = useRef(null);
 
@@ -30,8 +28,13 @@ const UpdateForm = () => {
     console.log(storage);
 
     const getData=()=>{
-        axios.get("/boot/board/update")
-        .then()
+        axios.get(`/boot/board/updateform?boardnum=${boardnum}`)
+        .then(res=>{
+            setWriter(res.data.writer);
+            setSubject(res.data.subject);
+            setPhoto(res.data.photo);
+            setContent(res.data.content)
+        })
     }
 
     const uploadPhoto = (e) => {
@@ -50,7 +53,8 @@ const UpdateForm = () => {
     };
 
     useEffect(() => {
-        contentRef.current?.getInstance().setHTML('');
+        getData();
+        contentRef.current?.getInstance().setHTML(content);
     }, []);
 
     const dataSaveEvent = () => {

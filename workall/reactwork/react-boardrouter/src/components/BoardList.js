@@ -49,8 +49,11 @@ const BoardList=()=>{
                                     <img alt="" src={`${storage}/${row.photo}`}
                                     style={{width:'40px',height:'40px'}} />
                                     {row.subject}
-                                    
-
+                                    &nbsp;
+                                    {row.readcount>0?
+                                    <span style={{color:'red'}}>
+                                        [{row.answercount}]
+                                        </span>:""}
                                 </NavLink>
                             </td>
                             <td>{row.writer}</td>
